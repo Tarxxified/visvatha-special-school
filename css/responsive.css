@@ -1,0 +1,33 @@
+@media(max-width:992px){
+
+.nav-menu{
+
+display:none;
+
+}
+
+.apply-btn{
+
+display:none;
+
+}
+
+.hamburger{
+
+display:flex;
+
+}
+
+.logo img{
+
+width:55px;
+
+}
+
+.logo-text h2{
+
+font-size:24px;
+
+}
+
+}
