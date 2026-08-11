@@ -9,7 +9,7 @@
    6. Contact form validation + fake submit handler
    7. Footer year
    ============================================================ */
-
+console.log("VISVATHA SCRIPT LOADED");
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- 1. MOBILE NAV TOGGLE ---------- */
@@ -90,15 +90,20 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------- 6. CONTACT FORM ---------- */
   var form = document.getElementById('enquiryForm');
   var status = document.getElementById('formStatus');
+  var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    console.log("FORM SUBMIT EVENT FIRED");
 
       var phone = form.phone.value.trim();
       var email = form.email.value.trim();
       var phoneOk = /^[0-9+\-\s]{7,15}$/.test(phone);
       var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      console.log("VALIDATION:", form.checkValidity(), phoneOk, emailOk);
 
       if (!form.checkValidity() || !phoneOk || !emailOk) {
         status.textContent = 'Please check the highlighted fields — phone and email should be valid.';
@@ -107,12 +112,67 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // NOTE: This is a front-end-only demo. To actually receive these enquiries by email,
-      // connect this form to a service like Formspree/EmailJS, or your own backend endpoint,
-      // then replace this block with a real fetch() call. See README.md for instructions.
-      status.textContent = 'Thank you! Your enquiry has been noted. We will get back to you within a day.';
-      status.className = 'success';
-      form.reset();
+      var payload = {
+  parentName: form.parentName.value.trim(),
+  childAge: form.childAge.value,
+  phone: phone,
+  email: email,
+  interest: form.interest.value,
+  message: form.message.value.trim()
+};
+
+submitBtn.disabled = true;
+submitBtn.textContent = 'Sending…';
+status.className = '';
+status.textContent = '';
+
+console.log("ABOUT TO SEND:", payload);
+
+fetch('http://localhost:5000/api/enquiries', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(payload)
+})
+.then(function (res) {
+  return res.json().then(function (data) {
+    return {
+      ok: res.ok,
+      data: data
+    };
+  });
+})
+.then(function (result) {
+  if (!result.ok) {
+    var msg =
+      (result.data.errors && result.data.errors.join(' ')) ||
+      result.data.error ||
+      'Something went wrong. Please try again.';
+
+    throw new Error(msg);
+  }
+
+  status.textContent =
+    result.data.message ||
+    'Thank you! Your enquiry has been received.';
+
+  status.className = 'success';
+  form.reset();
+})
+.catch(function (err) {
+  console.error('FORM ERROR:', err);
+
+  status.textContent =
+    err.message ||
+    'Could not reach the server. Please try again.';
+
+  status.className = 'error';
+})
+.finally(function () {
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Send Enquiry';
+});
     });
   }
 

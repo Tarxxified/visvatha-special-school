@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visvatha Admin — Enquiries</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ============== LOGIN GATE ============== -->
+<div id="loginGate" class="login-gate">
+  <div class="login-card">
+    <h1>Visvatha Admin</h1>
+    <p>Enter your admin key to view enquiries.</p>
+    <input type="password" id="adminKeyInput" placeholder="Admin key">
+    <button id="loginBtn" class="btn">Enter Dashboard</button>
+    <p class="login-error" id="loginError"></p>
+    <p class="login-hint">This is the <code>ADMIN_KEY</code> value set in <code>backend/.env</code>.</p>
+  </div>
+</div>
+
+<!-- ============== DASHBOARD ============== -->
+<div id="dashboard" class="dashboard hidden">
+  <header class="admin-header">
+    <div>
+      <h1>Enquiries</h1>
+      <p id="enquiryCount">Loading…</p>
+    </div>
+    <div class="header-actions">
+      <select id="statusFilter">
+        <option value="">All statuses</option>
+        <option value="new">New</option>
+        <option value="contacted">Contacted</option>
+        <option value="enrolled">Enrolled</option>
+        <option value="closed">Closed</option>
+      </select>
+      <button id="refreshBtn" class="btn btn-outline">Refresh</button>
+      <button id="logoutBtn" class="btn btn-outline">Log Out</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div id="loadingState" class="empty-state">Loading enquiries…</div>
+    <div id="errorState" class="empty-state error hidden"></div>
+    <div id="emptyState" class="empty-state hidden">No enquiries match this filter yet.</div>
+
+    <div id="enquiryList" class="enquiry-list"></div>
+  </main>
+</div>
+
+<!-- ============== DETAIL / CONFIRM MODAL ============== -->
+<div id="modalOverlay" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

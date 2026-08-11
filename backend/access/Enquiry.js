@@ -80,14 +80,13 @@ async function createEnquiry(data) {
     status: 'new',
   };
 
-  const { data: inserted, error } = await supabasePublic
-    .from(TABLE)
-    .insert(row)
-    .select()
-    .single();
+  const { error } = await supabasePublic
+  .from(TABLE)
+  .insert(row);
 
-  if (error) throw error;
-  return mapRow(inserted);
+if (error) throw error;
+
+return null;
 }
 
 // ADMIN ONLY (reached via adminAuth middleware) — uses the service-role client.
