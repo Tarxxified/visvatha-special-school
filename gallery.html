@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery | Visvatha Special School</title>
+<meta name="description" content="A look inside Visvatha Special School, Korattur, Chennai — classrooms, activities, and everyday moments.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+<!-- ============================= HEADER ============================= -->
+<!-- Same header as index.html. Anchor links point back to index.html's
+     sections since those sections only exist on that page. -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-inner">
+    <a href="index.html#home" class="brand">
+      <img src="images/visvatha logo.png" class="brand-mark">
+      <span class="brand-text">
+        <strong>Visvatha</strong>
+        <span>Special School</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#admissions">Admissions</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="index.html#testimonials">Parents Speak</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="tel:+91 99620 92707" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+91 99620 92707</span>
+      </a>
+      <a href="index.html#contact" class="btn btn-primary">Book a Visit</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================= GALLERY HERO ============================= -->
+<section class="gallery-hero">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;">A look inside</div>
+    <h1>Everyday moments at Visvatha</h1>
+    <p>Classrooms, activities, celebrations and quiet everyday wins — a glimpse into life at school.</p>
+  </div>
+</section>
+
+<!-- ============================= FILTER BAR ============================= -->
+<!-- EDIT: rename/add/remove categories to match your real photo groups.
+     Each button's data-filter must match the data-category on the photos below. -->
+<div class="container">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All Photos</button>
+    <button class="filter-btn" data-filter="classroom">Classroom</button>
+    <button class="filter-btn" data-filter="activities">Activities</button>
+    <button class="filter-btn" data-filter="events">Events &amp; Celebrations</button>
+    <button class="filter-btn" data-filter="facilities">Facilities</button>
+  </div>
+</div>
+
+<!-- ============================= GALLERY GRID ============================= -->
+<section class="section gallery-section">
+  <div class="container">
+    <!--
+      EDIT: This is where you add your real photos.
+      Each item needs:
+        - data-category matching one of the filter buttons above
+        - the image itself (swap the src to your real file in assets/images/)
+        - a short caption shown in the lightbox when someone clicks it
+
+      To add a new photo, copy one whole <div class="gallery-item">...</div>
+      block and change its src, alt, data-category, and caption.
+    -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <div class="gallery-item reveal" data-category="classroom">
+        <img src="assets/images/gallery/1.jpeg" alt="Students in the classroom at Visvatha Special School" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="activities">
+        <img src="assets/images/gallery/2.jpeg" alt="A child painting during an art activity" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="events">
+        <img src="assets/images/gallery/3.jpeg" alt="Students celebrating together" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="activities">
+        <img src="assets/images/art.jpeg" alt="Art and craft activity" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="facilities">
+        <img src="assets/images/smiles.jpeg" alt="A classroom space at Visvatha Special School" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal" data-category="classroom">
+        <img src="assets/images/art.jpeg" alt="Students working with a teacher" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Shown automatically by gallery.js if a filter has zero matching photos -->
+    <p class="gallery-empty hidden" id="galleryEmpty">No photos in this category yet — check back soon!</p>
+  </div>
+</section>
+
+<!-- ============================= LIGHTBOX ============================= -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#10094;</button>
+  <img class="lightbox-image" id="lightboxImage" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#10095;</button>
+</div>
+
+<!-- ============================= FOOTER ============================= -->
+<!-- Same footer as index.html, links pointed back to index.html's sections. -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="23" fill="#3E9083"/>
+            <path d="M13 30c4-6 8-2 11-2s7-4 11 2c-3 6-8 8-11 8s-8-2-11-8Z" fill="#FBF7F0"/>
+            <circle cx="24" cy="22" r="3.4" fill="#F0834D"/>
+          </svg>
+          <strong>Visvatha Special School</strong>
+        </div>
+        <p>A safe place where every child is seen, guided and valued. Korattur, Chennai.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="#fff" stroke="none"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#programs">Programs</a></li>
+          <li><a href="index.html#admissions">Admissions</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="index.html#programs">Special Education</a></li>
+          <li><a href="index.html#programs">Speech Therapy</a></li>
+          <li><a href="index.html#programs">Occupational Therapy</a></li>
+          <li><a href="index.html#programs">Life Skills</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>Korattur, Chennai, Tamil Nadu</li>
+          <li><a href="tel:+91 99620 92707">+91 99620 92707</a></li>
+          <li><a href="mailto:visvatha.splschool@gmail.com">visvatha.splschool@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Visvatha Special School. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* ============================================================
+   GALLERY PAGE — STYLES
+   ------------------------------------------------------------
+   Separate file from style.css on purpose: this only loads on
+   gallery.html, and keeps index.html's stylesheet completely
+   untouched. Uses the same design tokens (--navy, --coral, --teal,
+   fonts, radius, shadows) defined in css/style.css, so it matches
+   the rest of the site automatically.
+   ============================================================ */
+
+/* ---------- Gallery hero (smaller than the homepage hero) ---------- */
+.gallery-hero{
+  padding: 64px 0 40px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--teal-light) 0%, var(--bg) 100%);
+}
+.gallery-hero h1{
+  font-size: clamp(30px, 4.4vw, 44px);
+  margin-bottom: 12px;
+}
+.gallery-hero p{
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+/* ---------- Filter bar ---------- */
+.filter-bar{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 0 8px;
+}
+.filter-btn{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--ink-soft);
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+.filter-btn:hover{
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.filter-btn.active{
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+}
+
+/* ---------- Gallery grid ---------- */
+.gallery-section{ padding-top: 24px; }
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gallery-item{
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform .25s ease;
+}
+.gallery-item:hover{ transform: translateY(-4px); }
+.gallery-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+.gallery-item:hover img{ transform: scale(1.06); }
+.gallery-item-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 75, 95, 0.35);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s ease;
+}
+.gallery-item:hover .gallery-item-overlay{ opacity: 1; }
+.gallery-item-overlay svg{
+  width: 34px;
+  height: 34px;
+  color: #fff;
+}
+
+/* Items filtered out are hidden (JS toggles this class) */
+.gallery-item.gallery-hidden{ display: none; }
+
+.gallery-empty{
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 40px 0;
+  display: none;
+}
+.gallery-empty:not(.hidden){ display: block; }
+
+/* ---------- Lightbox ---------- */
+.lightbox-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 30, 35, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 40px;
+}
+.lightbox-overlay.open{ display: flex; }
+.lightbox-image{
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-close{
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.85;
+}
+.lightbox-close:hover{ opacity: 1; }
+.lightbox-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .18s ease;
+}
+.lightbox-nav:hover{ background: rgba(255,255,255,0.25); }
+.lightbox-prev{ left: 24px; }
+.lightbox-next{ right: 24px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .gallery-grid{ grid-template-columns: 1fr; gap: 16px; }
+  .lightbox-nav{ width: 40px; height: 40px; }
+  .lightbox-prev{ left: 10px; }
+  .lightbox-next{ right: 10px; }
+  .lightbox-close{ top: 14px; right: 16px; }
+}
