@@ -128,7 +128,7 @@ status.textContent = '';
 
 console.log("ABOUT TO SEND:", payload);
 
-fetch('http://localhost:5000/api/enquiries', {
+fetch('https://visvatha-backend.onrender.com/api/enquiries',  {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
