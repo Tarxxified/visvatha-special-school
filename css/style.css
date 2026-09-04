@@ -493,6 +493,58 @@ button{ font-family: inherit; cursor:pointer; }
 .contact-info-item h4{ font-size:15px; margin-bottom:2px; color:var(--navy); }
 .contact-info-item p{ margin:0; font-size:14.5px; }
 .contact-info-item a{ color: var(--teal); font-weight:600; }
+/* ---------- CONTACT SOCIAL BUTTONS ---------- */
+
+.contact-social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.contact-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.contact-social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.contact-social-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+
+.contact-social-btn.linkedin {
+  background: #0A66C2;
+  color: white;
+}
+/* Social button icons */
+.contact-social-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+  .contact-social-buttons {
+    flex-direction: column;
+  }
+
+  .contact-social-btn {
+    width: 100%;
+  }
+}
 
 .map-wrap{
   margin-top: 24px;
