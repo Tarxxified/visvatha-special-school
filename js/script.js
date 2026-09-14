@@ -1,5 +1,5 @@
 /* ============================================================
-   VISVATHA SPECIAL SCHOOL — SCRIPT
+   VISVATHA Learning Centre — SCRIPT
    ------------------------------------------------------------
    1. Mobile nav toggle
    2. Sticky header shadow on scroll

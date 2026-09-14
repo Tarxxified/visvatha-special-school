@@ -1,4 +1,4 @@
-# Visvatha Special School — Website
+# Visvatha Learning Centre — Website
 
 A clean, warm, one-page website built with plain **HTML, CSS and JavaScript** — no frameworks, no build tools. Open the folder in VS Code and start editing.
 
@@ -22,7 +22,7 @@ Search for `EDIT:` comments in `index.html` — they mark every spot using place
 
 1. **Logo** — currently an SVG placeholder in the header/footer. Replace with your real logo:
    ```html
-   <img src="images/logo.png" class="brand-mark" alt="Visvatha Special School logo">
+   <img src="images/logo.png" class="brand-mark" alt="Visvatha Learning Centre logo">
    ```
 2. **Phone number & email** — search for `+91 00000 00000` and `info@visvathaschool.com` and replace throughout.
 3. **Address & map** — the embedded map currently just searches "Korattur, Chennai". For your exact location:

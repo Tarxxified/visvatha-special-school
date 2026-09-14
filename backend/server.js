@@ -1,5 +1,5 @@
 // ============================================================
-// VISVATHA SPECIAL SCHOOL — BACKEND SERVER
+// VISVATHA Learning Centre — BACKEND SERVER
 // ------------------------------------------------------------
 // Run with:  npm install   then   npm run dev  (or npm start)
 // ============================================================

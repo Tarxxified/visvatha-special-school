@@ -1,7 +1,7 @@
 {
   "name": "visvatha-backend",
   "version": "1.0.0",
-  "description": "Backend API for the Visvatha Special School website — receives and manages enquiry form submissions.",
+  "description": "Backend API for the Visvatha Learning Centre website — receives and manages enquiry form submissions.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
