@@ -524,6 +524,10 @@ button{ font-family: inherit; cursor:pointer; }
   color: white;
 }
 
+.contact-social-btn.instagram {
+  background: #E1306C;
+  color: white;
+}
 
 .contact-social-btn.linkedin {
   background: #0A66C2;
